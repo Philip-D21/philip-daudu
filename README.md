@@ -105,13 +105,13 @@ npm run build
 npm start
 ```
 
-The server will start on `http://localhost:9001`
+The server will start on `http://localhost:${port}`
 
 ## 📖 API Documentation
 
 ### Base URL
 ```
-http://localhost:9001
+http://localhost:${port}
 ```
 
 ### Health Check
@@ -170,31 +170,9 @@ GET /api/leave-request/employee/{id}/history?page=1&limit=10
 
 
 
-## 🧪 Testing
-
-The project includes basic API testing using Jest and Supertest.
-
-### Run Tests
-```bash
-# Run all tests
-npm test
-
-# Run API tests only
-npm run test:api
-
-# Test with coverage
-npm run test:coverage
-
-# Watch mode for development
-npm run test:watch
 ```
 
-### Test Coverage
 
-The test suite covers:
-- ✅ API endpoints (Departments, Employees, Leave Requests)
-- ✅ Request/response validation
-- ✅ Error handling scenarios
 ## 🐳 Docker Support
 
 ### Using Docker Compose
@@ -211,45 +189,6 @@ docker-compose down
 # Stop and remove volumes
 docker-compose down -v
 ```
-
-### Docker Services
-- **App**: Node.js application (port 9001)
-- **MySQL 8.0**: Database (port 3306)
-- **RabbitMQ 3.13**: Message queue (ports 5672, 15672)
-
-### Docker Features
-- ✅ **Multi-stage build** with Node.js 18 Alpine
-- ✅ **Health checks** for all services
-- ✅ **Persistent volumes** for data
-- ✅ **Service dependencies** with health checks
-- ✅ **Security** with non-root user
-- ✅ **Production optimized** with minimal image size
-
-### Access Points
-- **API**: http://localhost:9001
-- **MySQL**: localhost:3306 (root/password)
-- **RabbitMQ Management**: http://localhost:15672 (admin/password)
-
-## 📊 Monitoring
-
-### Health Checks
-```bash
-# Application health
-GET /health
-
-# Response format
-{
-  "status": true,
-  "message": "Server is healthy",
-  "timestamp": "2024-01-01T00:00:00.000Z",
-  "uptime": 3600
-}
-```
-
-### Logs
-- **Request Logging**: All HTTP requests with timing
-- **Error Logging**: Detailed error information
-- **Performance Monitoring**: Response time tracking
 
 ## 🔧 Configuration
 
@@ -269,25 +208,6 @@ GET /health
 
 
 
-## 📁 Project Structure
-
-```
-server/
-├── src/
-│   ├── controllers/          # Request handlers
-│   ├── helpers/             # Utility functions
-│   ├── middlewares/         # Express middleware
-│   ├── model/              # Database models
-│   ├── queue/              # RabbitMQ integration
-│   ├── repositories/       # Data access layer
-│   ├── routes/             # API routes
-│   ├── services/           # Business logic
-│   └── app.ts              # Application entry point
-├── tests/                  # Test files
-├── docker-compose.yml      # Docker services
-├── package.json           # Dependencies
-└── README.md              # This file
-```
 
 
 
